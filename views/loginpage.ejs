@@ -1,0 +1,21 @@
+<%- include('Header.ejs') %>
+    <div id="reglogpage">
+        <h1>LogIn</h1>
+        <div id="register-page">
+            <form method="post" action="/logintoemail">
+                <label>Email:</label>
+                <input type="email" name="email" id="input-txt">
+                <label>Password:</label>
+                <input type="password" name="pwd" id="input-txt">
+                <button type="submit" id="submit-btn">Log In</button>
+                <% if(message){ %>
+                    <h5>
+                        <%= message %>
+                    </h5>
+                    <% } %>
+            </form>
+        </div>
+    </div>
+    </body>
+
+    </html>

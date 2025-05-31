@@ -1,0 +1,123 @@
+body {
+    text-align: center;
+    align-items: center;
+    background-image: url('/img/background-img.jpg');
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0px;
+}
+
+#btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+#box {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+#key {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+#secret-title {
+    font-size: 80px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: rgb(202, 185, 218);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#title-text {
+    font-size: 20px;
+}
+
+.btn-reg {
+    padding: 10px;
+    width: 150px;
+    border-radius: 20px;
+    background-color: rgb(145, 110, 159);
+    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-reg:hover {
+    transform: translateX(1px) scale(1.10);
+    background-color: rgb(115, 66, 118);
+}
+
+#register-page {
+    padding: 40px;
+    width: 300px;
+    margin: 40px auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+#reglogpage {
+    padding-top: 100px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+#input-txt {
+    padding: 6px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+#input-txt:focus {
+    outline: none;
+    border: 1px solid #9140a3;
+    box-shadow: 0 0 5px rgba(145, 64, 163, 0.5);
+}
+
+#submit-btn {
+    padding: 10px;
+    width: 200px;
+    border-radius: 20px;
+    background-color: rgb(145, 110, 159);
+    transition: all 0.3s ease;
+}
+
+#submit-btn:hover {
+    transform: translateX(1px) scale(1.10);
+    background-color: rgb(115, 66, 118);
+}
+
+#tabs {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    padding: 10px;
+    gap: 20px;
+    background-color: rgba(87, 60, 104);
+}
+
+#btn-header {
+    padding: 20px;
+    background-color: rgba(87, 60, 104, 0.8);
+    border: 0px;
+    font-size: 20px;
+    border-radius: 20px;
+    color: black;
+}
+
+#btn-header:hover {
+    margin: 2px solid black;
+    transform: scale(1.2);
+}
