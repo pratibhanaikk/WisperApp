@@ -9,16 +9,16 @@ import env from 'dotenv';
 
 const app = express();
 const port = 3000;
+env.config();
 
 const db = new pg.Client({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'wisperdb',
-    password: '12@Arpush',
-    port: 5433
+    user: process.env.DB_USER,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    port: parseInt(process.env.DB_PORT),
+    host: process.env.DB_HOST
 });
 db.connect();
-env.config();
 
 const saltRounds = 10;
 
