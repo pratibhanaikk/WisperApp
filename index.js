@@ -54,8 +54,8 @@ passport.use("local", new Strategy({ usernameField: "email", passwordField: "pwd
 passport.use("google", new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIEND_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/secrets",
-    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo" 
+    callbackURL: "",
+    userProfileURL: "" 
 }, async (accessToken, refreshToken, profile, cb) => {
     console.log(profile);
       try{
