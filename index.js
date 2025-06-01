@@ -5,6 +5,7 @@ import bcrypt from 'bcrypt';
 import session from 'express-session';
 import passport from 'passport';
 import { Strategy } from 'passport-local';
+import GoogleStrategy from 'passport-google-oauth2';
 import env from 'dotenv';
 
 const app = express();
@@ -35,7 +36,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new Strategy({ usernameField: "email", passwordField: "pwd" },
+passport.use("local", new Strategy({ usernameField: "email", passwordField: "pwd" },
     async function (email, password, done) {
         try {
             const result = await db.query("SELECT * FROM wisperlogin WHERE email = $1", [email]);
@@ -49,6 +50,26 @@ passport.use(new Strategy({ usernameField: "email", passwordField: "pwd" },
         }
     }
 ));
+
+passport.use("google", new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIEND_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/secrets",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo" 
+}, async (accessToken, refreshToken, profile, cb) => {
+    console.log(profile);
+      try{
+         const result = await db.query("SELECT * FROM wisperlogin WHERE email = $1", [profile.email]);
+         if(result.rows.length === 0){
+            const newUser = await db.query("INSERT INTO wisperlogin(email, passwords) VALUES ($1, $2)", [profile.email, "google"]);
+            cb(null, newUser.rows[0]);
+         }else{
+            cb(null, result.rows[0]);
+         }
+      }catch(err){
+        cb(err);
+      }
+}));
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -83,6 +104,15 @@ app.post("/registeremail", async (req, res) => {
     }
 });
 
+app.get("/auth/google", passport.authenticate("google", {
+    scope: ["profile", "email"],
+}));
+
+app.get("/auth/google/secrets", passport.authenticate("google", {
+    successRedirect: "/secrets",
+    failureRedirect: "/login",
+}));
+
 app.get("/login", (req, res) => {
     res.render("loginpage.ejs", { message: "" });
 });
@@ -108,7 +138,7 @@ app.post("/inputsecret", async (req, res) => {
     const { id, secret } = req.body;
     try {
         await db.query("INSERT INTO secretdata(secret, login_id) VALUES ($1, $2)", [secret, id]);
-        res.send("Secret stored successfully. Please log in again.");
+        res.redirect("/login");
     } catch (err) {
         res.send("Failed to store secret.");
     }

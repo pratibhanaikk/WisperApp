@@ -1,165 +1,214 @@
+/* ========== GLOBAL STYLES ========== */
 body {
-    text-align: center;
-    align-items: center;
-    background-image: url('/img/background-img.jpg');
-    background-size: cover;
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0px;
+  margin: 0;
+  text-align: center;
+  align-items: center;
+  background-image: url('/img/background-img.jpg');
+  background-size: cover;
+  font-family: 'Courier New', Courier, monospace;
+  color: #222;
 }
 
-#btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-}
-
-#box {
-    padding-top: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-}
-
-#key {
-    font-size: 80px;
-    margin-bottom: 20px;
+/* ========== HEADER / TITLE ========== */
+#key,
+#secret-title {
+  font-size: 80px;
+  margin-bottom: 20px;
 }
 
 #secret-title {
-    font-size: 80px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    background-color: rgb(202, 185, 218);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+  background-color: rgba(202, 185, 218, 0.85);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #title-text {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-.btn-reg {
-    padding: 10px;
-    width: 150px;
-    border-radius: 20px;
-    background-color: rgb(145, 110, 159);
-    font-size: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* ========== BUTTON CONTAINER ========== */
+#btn {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.btn-reg:hover {
-    transform: translateX(1px) scale(1.10);
-    background-color: rgb(115, 66, 118);
+/* ========== GENERAL BUTTON STYLE ========== */
+.btn-reg,
+#submit-btn,
+#input-secret-submit,
+.logout-link {
+  padding: 10px;
+  width: 200px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #8a5ca5;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-#register-page {
-    padding: 40px;
-    width: 300px;
-    margin: 40px auto;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
+.btn-reg:hover,
+#submit-btn:hover,
+#input-secret-submit:hover,
+.logout-link:hover {
+  background-color: #6e4788;
+  transform: scale(1.05);
 }
 
-#reglogpage {
-    padding-top: 100px;
+/* Specific sizes */
+#input-secret-submit {
+  width: 300px;
+  font-size: 18px;
+  padding: 15px;
+  margin-bottom: 30px;
 }
 
+/* ========== FORM & INPUT STYLES ========== */
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 #input-txt {
-    padding: 6px;
-    width: 200px;
-    border-radius: 20px;
+  padding: 8px;
+  width: 220px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
 }
 
 #input-txt:focus {
-    outline: none;
-    border: 1px solid #9140a3;
-    box-shadow: 0 0 5px rgba(145, 64, 163, 0.5);
+  outline: none;
+  border: 1px solid #8a5ca5;
+  box-shadow: 0 0 6px rgba(138, 92, 165, 0.4);
 }
 
-#submit-btn {
-    padding: 10px;
-    width: 200px;
-    border-radius: 20px;
-    background-color: rgb(145, 110, 159);
-    transition: all 0.3s ease;
+#input-secret {
+  padding: 20px;
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 12px;
+  font-size: 18px;
+  border: 1px solid #ccc;
 }
 
-#submit-btn:hover {
-    transform: translateX(1px) scale(1.10);
-    background-color: rgb(115, 66, 118);
+/* ========== CONTAINERS ========== */
+#box {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#register-page {
+  padding: 40px;
+  width: 320px;
+  margin: 40px auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#reglogpage {
+  padding-top: 100px;
 }
 
 #tabs {
-    display: flex;
-    flex-direction: row;
-    margin: 0px;
-    padding: 10px;
-    gap: 20px;
-    background-color: rgba(87, 60, 104);
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  background-color: #573c68;
+  justify-content: center;
 }
 
+/* ========== HEADER BUTTONS ========== */
 #btn-header {
-    padding: 20px;
-    background-color: rgba(87, 60, 104, 0.8);
-    border: 0px;
-    font-size: 20px;
-    border-radius: 20px;
-    color: black;
+  padding: 12px 20px;
+  background-color: rgba(87, 60, 104, 0.9);
+  border: none;
+  font-size: 18px;
+  color: white;
+  border-radius: 20px;
+  transition: transform 0.2s ease;
 }
 
 #btn-header:hover {
-    margin: 2px solid black;
-    transform: scale(1.2);
+  transform: scale(1.1);
 }
 
-#list_ofsecrets{
-   display: flex;
-   flex-direction: column;
-   justify-content: flex-start;
-   gap: 100px;
-   padding: 70px;
-   list-style-type: none;
+/* ========== SECRETS DISPLAY ========== */
+#list_ofsecrets {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px;
+  list-style-type: none;
 }
 
-#list_content{
-    background-color: white;
-    padding: 10px;
-    border: 2px solid black;
-    border-radius: 50px;
-    font-size: 40px;
+#list_content {
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #573c68;
+  border-radius: 20px;
+  font-size: 28px;
 }
 
-#add_id{
-    padding: 0px;
-    font-size: 40px;
+/* ========== GOOGLE LOGIN BUTTON ========== */
+.google-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #444;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 10px 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
 }
 
-#input-secret{
-    padding: 30px 30px 30px 30px;
-    font-size: 20px;
-    margin-left: 60px;
-    width: 100%;
+.google-btn:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-#input-secret-submit{
-    padding: 20px;
-    margin-bottom: 30px;
-    width: 300px;
-    font-size: 30px;
-    border-radius: 20px;
-    background-color: #694172;
+.google-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #ddd;
+  padding-right: 10px;
+  margin-right: 10px;
 }
-#input-secret-submit:hover{
-    transform: scale(1.10);
-    background-color: #927398;
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ========== LOGOUT LINK ========== */
+.logout-link {
+  display: inline-block;
+  background-color: #8a5ca5;
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logout-link:hover {
+  background-color: #6e4788;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
